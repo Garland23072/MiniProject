@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('layouts/header') %> 
+    <body>
+        <%- include('layouts/navbar') %> 
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('/assets/img/server-lobby.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>- สมัครสมาชิก 🥳-</h1>
+                            <h3>To MinePower</h3>
+                            <h4>Web-Shop</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <% if (errors != null && errors.length > 0) { %> 
+                            <ul class="list-group">
+                                <% for(let i = 0; i < errors.length; i++) { %>
+                                    <li class="list-group-item list-group-item-danger">
+                                        <%= errors[i] %> 
+                                    </li>
+                                <% } %>  
+                            </ul>
+                        <% } %> 
+                        <div class="my-5">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            <form action="/users/register" method="POST" enctype="multipart/form-data">
+                                <div class="form-floating">
+                                    <label for="title">Username - ชื่อผู้ใช้งาน</label>
+                                    <input class="form-control" id="username" value="<%= username %>" name="username" type="text" data-sb-validations="required" />
+                                </div>
+                                <div class="form-floating">
+                                    <label for="title">Password - รหัสผ่าน</label>
+                                    <input class="form-control" id="password" value="<%= password %>" name="password" type="password" data-sb-validations="required" />
+                                </div>
+                                <br />
+
+                                <button class="btn btn-primary text-uppercase" type="submit">ลงทะเบียน</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%- include('layouts/footer') %> 
+        <%- include('layouts/scripts') %> 
+    </body>
+</html>
